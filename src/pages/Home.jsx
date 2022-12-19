@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Home() {
   return (
     <section className="main-section">
@@ -16,7 +18,9 @@ export default function Home() {
           activity.
         </p>
 
-        <button className="main-content__start-btn">Start</button>
+        <Link to="/question" className="main-content__start-btn">
+          Start
+        </Link>
       </div>
     </section>
   );

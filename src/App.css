@@ -44,6 +44,7 @@ header .header-content {
 .main-content h1 {
   font-size: 4rem;
   margin: 1.2rem;
+  text-align: center;
 }
 
 .main-content__img {
@@ -182,4 +183,21 @@ header .header-content {
 .footer p {
   font-size: 1.3rem;
   text-align: center;
+}
+
+/* -------------------- Page 404 Styling -------------------------  */
+.page-404 {
+  min-height: 78vh;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+
+.page-404 h2 {
+  font-size: 3rem;
+}
+
+.page-404 .back-btn {
+  font-size: 2rem;
+  margin: 3rem auto;
 }
