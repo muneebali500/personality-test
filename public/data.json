@@ -37,12 +37,12 @@
     "answers": [
       {
         "number": "A",
-        "answer": "Participate in a lively discussion",
+        "answer": "Listen to an interesting lecture",
         "selected": false
       },
       {
         "number": "B",
-        "answer": "Listen to an interesting lecture",
+        "answer": "Participate in a lively discussion",
         "selected": false
       }
     ]
@@ -69,12 +69,12 @@
     "answers": [
       {
         "number": "A",
-        "answer": "Outgoing, talkative, and friendly",
+        "answer": "Quiet, reserved and calm",
         "selected": false
       },
       {
         "number": "B",
-        "answer": "Quiet, reserved and calm",
+        "answer": "Outgoing, talkative, and friendly",
         "selected": false
       }
     ]

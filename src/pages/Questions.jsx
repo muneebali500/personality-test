@@ -1,8 +1,75 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
+///////////// import custom components
+import Answer from "../components/Answer";
+
+/////////// start of main functional component
 export default function Questions() {
+  const [questionList, setQuestionList] = useState([]);
+  const [questionObj, setQuestionObj] = useState({});
+  const [questionIndex, setQuestionIndex] = useState(1);
+  let navigate = useNavigate();
+
+  ////////// mocking getting questions from backend on initial render.
+  useEffect(() => {
+    async function getQuestions() {
+      const res = await axios.get("/data.json");
+      const data = res.data;
+
+      setQuestionList(data);
+    }
+
+    getQuestions();
+  }, []);
+
+  ///////// getting new question every time the user clicks on next button
+  useEffect(() => {
+    if (questionIndex <= 5) {
+      const newQuestion = questionList.find(
+        (question) => question.id === questionIndex
+      );
+
+      setQuestionObj(newQuestion);
+    } else {
+      //////// navigating the user to either introvert page or extrovert page based on the selected answers
+      const introvertAnswers = questionList.filter(
+        (question) => question.answers[0].selected
+      );
+
+      if (introvertAnswers.length > 2) {
+        return navigate("/introvert");
+      }
+
+      return navigate("/extrovert");
+    }
+  }, [questionIndex, questionList]);
+
+  ///////// function updates question list every time user clicks on any answer option.
+  function handleClick(answerNumber) {
+    if (questionIndex >= 1 && questionIndex <= 5) {
+      const updatedQuestionList = questionList.map((question) => {
+        if (question.id === questionIndex) {
+          return {
+            ...question,
+            answers: question.answers.map((answer) =>
+              answer.number === answerNumber
+                ? { ...answer, selected: true }
+                : { ...answer, selected: false }
+            ),
+          };
+        } else {
+          return question;
+        }
+      });
+
+      setQuestionList(updatedQuestionList);
+    }
+  }
+
   return (
-    <section className="main-section">
+    <section className="hero-section">
       <div className="container main-content">
         <h1>Are you an introvert or extrovert?</h1>
         <figure className="main-content__img">
@@ -14,31 +81,36 @@ export default function Questions() {
         </figure>
 
         <div className="questions-container">
-          <h6 className="question-number">Question 1/5</h6>
-          <h3 className="question">
-            You're planning a night out. Which option sounds more fun?
-          </h3>
+          <h6 className="question-number">Question {questionIndex}/5</h6>
+          <h3 className="question">{questionObj?.question}</h3>
 
           <ul className="answers-container">
-            <li className="answer-wrapper">
-              <span className="answer-number">A</span>
-              <span className="answer">
-                Dinner with your best friend — just the two of you — and sharing
-                what's on your mind
-              </span>
-            </li>
-            <li className="answer-wrapper">
-              <span className="answer-number">B</span>
-              <span className="answer">
-                Going out with a group of friends. The more people, the more
-                energy you feel
-              </span>
-            </li>
+            {questionObj?.answers?.map((answer, index) => (
+              <Answer {...answer} handleClick={handleClick} key={index} />
+            ))}
           </ul>
 
           <div className="question-btns">
-            <button className="prev-btn">Previous Question</button>
-            <button className="next-btn">Next Question</button>
+            <button
+              className="prev-btn"
+              onClick={() => setQuestionIndex(questionIndex - 1)}
+              disabled={questionIndex <= 1 ? true : false}
+            >
+              Previous Question
+            </button>
+            <button
+              className="next-btn"
+              onClick={() => setQuestionIndex(questionIndex + 1)}
+              disabled={
+                questionList[questionIndex - 1]?.answers?.find(
+                  (answer) => answer.selected
+                )
+                  ? false
+                  : true
+              }
+            >
+              Next Question
+            </button>
           </div>
         </div>
       </div>
