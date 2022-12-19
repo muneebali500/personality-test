@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "question": "You're planning a night out. Which option sounds more fun?",
+    "answers": [
+      {
+        "number": "A",
+        "answer": "Dinner with your best friend — just the two of you — and sharing what's on your mind",
+        "selected": false
+      },
+      {
+        "number": "B",
+        "answer": "Going out with a group of friends. The more people, the more energy you feel",
+        "selected": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "question": "If you were forced to chose one, which would you choose?",
+    "answers": [
+      {
+        "number": "A",
+        "answer": "A weekend with zero social plans",
+        "selected": false
+      },
+      {
+        "number": "B",
+        "answer": "A weekend packed with social plans",
+        "selected": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "question": "As a student, would you rather...",
+    "answers": [
+      {
+        "number": "A",
+        "answer": "Participate in a lively discussion",
+        "selected": false
+      },
+      {
+        "number": "B",
+        "answer": "Listen to an interesting lecture",
+        "selected": false
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "question": "In general, after attending a large party or networking event, how do you feel?",
+    "answers": [
+      {
+        "number": "A",
+        "answer": "Tired and drained, even if I had fun",
+        "selected": false
+      },
+      {
+        "number": "B",
+        "answer": "Energized and ready for more",
+        "selected": false
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "question": "You've just met someone new. How would they describe you?",
+    "answers": [
+      {
+        "number": "A",
+        "answer": "Outgoing, talkative, and friendly",
+        "selected": false
+      },
+      {
+        "number": "B",
+        "answer": "Quiet, reserved and calm",
+        "selected": false
+      }
+    ]
+  }
+]
