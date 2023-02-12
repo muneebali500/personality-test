@@ -4,9 +4,10 @@ import { useNavigate } from "react-router-dom";
 
 ///////////// import custom components
 import Answer from "../components/Answer";
+import Button from "../components/Button";
 
 /////////// start of main functional component
-export default function Questions() {
+export default function Questions(props) {
   const [questionList, setQuestionList] = useState([]);
   const [questionObj, setQuestionObj] = useState({});
   const [questionIndex, setQuestionIndex] = useState(1);
@@ -15,10 +16,14 @@ export default function Questions() {
   ////////// mocking getting questions from backend on initial render.
   useEffect(() => {
     async function getQuestions() {
-      const res = await axios.get("/data.json");
-      const data = res.data;
+      try {
+        const res = await axios.get("/data.json");
+        const data = res.data;
 
-      setQuestionList(data);
+        setQuestionList(data);
+      } catch (err) {
+        alert("There was something wrong, please try again");
+      }
     }
 
     getQuestions();
@@ -34,20 +39,20 @@ export default function Questions() {
       setQuestionObj(newQuestion);
     } else {
       //////// navigating the user to either introvert page or extrovert page based on the selected answers
-      const introvertAnswers = questionList.filter(
-        (question) => question.answers[0].selected
-      );
+      const introvertAnswers = questionList.filter((question) => {
+        return question.answers.find(
+          (answer) => answer.selected && answer.status === "introvert"
+        );
+      });
 
-      if (introvertAnswers.length > 2) {
-        return navigate("/introvert");
-      }
-
-      return navigate("/extrovert");
+      introvertAnswers.length > questionList.length / 2
+        ? navigate("/introvert")
+        : navigate("/extrovert");
     }
   }, [questionIndex, questionList]);
 
   ///////// function updates question list every time user clicks on any answer option.
-  function handleClick(answerNumber) {
+  function selectAnswer(answerNumber) {
     if (questionIndex >= 1 && questionIndex <= 5) {
       const updatedQuestionList = questionList.map((question) => {
         if (question.id === questionIndex) {
@@ -68,8 +73,9 @@ export default function Questions() {
     }
   }
 
+  ///////// JSX part
   return (
-    <section className="hero-section">
+    <section className="main-section">
       <div className="container main-content">
         <h1>Are you an introvert or extrovert?</h1>
         <figure className="main-content__img">
@@ -86,21 +92,20 @@ export default function Questions() {
 
           <ul className="answers-container">
             {questionObj?.answers?.map((answer, index) => (
-              <Answer {...answer} handleClick={handleClick} key={index} />
+              <Answer {...answer} selectAnswer={selectAnswer} key={index} />
             ))}
           </ul>
 
           <div className="question-btns">
-            <button
-              className="prev-btn"
-              onClick={() => setQuestionIndex(questionIndex - 1)}
+            <Button
+              btnName="Previous Question"
+              handleClick={() => setQuestionIndex(questionIndex - 1)}
               disabled={questionIndex <= 1 ? true : false}
-            >
-              Previous Question
-            </button>
-            <button
-              className="next-btn"
-              onClick={() => setQuestionIndex(questionIndex + 1)}
+            />
+
+            <Button
+              btnName={questionIndex < 5 ? "Next Question" : "Finish the Test"}
+              handleClick={() => setQuestionIndex(questionIndex + 1)}
               disabled={
                 questionList[questionIndex - 1]?.answers?.find(
                   (answer) => answer.selected
@@ -108,9 +113,7 @@ export default function Questions() {
                   ? false
                   : true
               }
-            >
-              Next Question
-            </button>
+            />
           </div>
         </div>
       </div>

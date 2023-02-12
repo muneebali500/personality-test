@@ -139,8 +139,7 @@ header .header-content {
   gap: 2rem;
 }
 
-.questions-container .question-btns .next-btn,
-.questions-container .question-btns .prev-btn {
+.questions-container .question-btns button {
   width: 100%;
   font-size: 1.6rem;
   padding: 1.7rem;

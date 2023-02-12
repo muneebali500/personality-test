@@ -1,80 +1,150 @@
 [
   {
     "id": 1,
-    "question": "You're planning a night out. Which option sounds more fun?",
+    "question": "You’re really busy at work and a colleague is telling you their life story and personal woes. You:",
     "answers": [
       {
         "number": "A",
-        "answer": "Dinner with your best friend — just the two of you — and sharing what's on your mind",
+        "answer": "Don’t dare to interrupt them",
+        "status": "introvert",
         "selected": false
       },
       {
         "number": "B",
-        "answer": "Going out with a group of friends. The more people, the more energy you feel",
+        "answer": "Listen, but with only with half an ear",
+        "status": "extrovert",
+        "selected": false
+      },
+      {
+        "number": "C",
+        "answer": "Think it’s more important to give them some of your time; work can wait",
+        "status": "introvert",
+        "selected": false
+      },
+      {
+        "number": "D",
+        "answer": "Interrupt and explain that you are really busy at the moment",
+        "status": "extrovert",
         "selected": false
       }
     ]
   },
   {
     "id": 2,
-    "question": "If you were forced to chose one, which would you choose?",
+    "question": "You’ve been sitting in the doctor’s waiting room for more than 25 minutes. You:",
     "answers": [
       {
         "number": "A",
-        "answer": "A weekend with zero social plans",
+        "answer": "Complain in a loud voice, while tapping your foot impatiently",
+        "status": "extrovert",
         "selected": false
       },
       {
         "number": "B",
-        "answer": "A weekend packed with social plans",
+        "answer": "Look at your watch every two minutes",
+        "status": "introvert",
+        "selected": false
+      },
+      {
+        "number": "C",
+        "answer": "Bubble with inner anger, but keep quiet",
+        "status": "introvert",
+        "selected": false
+      },
+      {
+        "number": "D",
+        "answer": "Explain to other equally impatient people in the room that the doctor is always running late",
+        "status": "extrovert",
         "selected": false
       }
     ]
   },
   {
     "id": 3,
-    "question": "As a student, would you rather...",
+    "question": "You’re having an animated discussion with a colleague regarding a project that you’re in charge of. You:",
     "answers": [
       {
         "number": "A",
-        "answer": "Listen to an interesting lecture",
+        "answer": "Think that they are obviously right",
+        "status": "introvert",
         "selected": false
       },
       {
         "number": "B",
-        "answer": "Participate in a lively discussion",
+        "answer": "Defend your own point of view, tooth and nail",
+        "status": "extrovert",
+        "selected": false
+      },
+      {
+        "number": "C",
+        "answer": "Continuously interrupt your colleague",
+        "status": "extrovert",
+        "selected": false
+      },
+      {
+        "number": "D",
+        "answer": "Don’t dare contradict them",
+        "status": "introvert",
         "selected": false
       }
     ]
   },
   {
     "id": 4,
-    "question": "In general, after attending a large party or networking event, how do you feel?",
+    "question": "You are taking part in a guided tour of a museum. You:",
     "answers": [
       {
         "number": "A",
-        "answer": "Tired and drained, even if I had fun",
+        "answer": "Are a bit too far towards the back so don’t really hear what the guide is saying",
+        "status": "introvert",
         "selected": false
       },
       {
         "number": "B",
-        "answer": "Energized and ready for more",
+        "answer": "Follow the group without question",
+        "status": "introvert",
+        "selected": false
+      },
+      {
+        "number": "C",
+        "answer": "Make sure that everyone is able to hear properly",
+        "status": "extrovert",
+        "selected": false
+      },
+      {
+        "number": "D",
+        "answer": "Are right up the front, adding your own comments in a loud voice",
+        "status": "extrovert",
         "selected": false
       }
     ]
   },
   {
     "id": 5,
-    "question": "You've just met someone new. How would they describe you?",
+    "question": "During dinner parties at your home, you have a hard time with people who:",
     "answers": [
       {
         "number": "A",
-        "answer": "Quiet, reserved and calm",
+        "answer": "Hang around you all evening",
+        "status": "extrovert",
         "selected": false
       },
       {
         "number": "B",
-        "answer": "Outgoing, talkative, and friendly",
+        "answer": "Always drag the conversation back to themselves",
+        "status": "extrovert",
+        "selected": false
+      },
+      {
+        "number": "C",
+        "answer": "Ask you to tell a story in front of everyone else",
+        "status": "introvert",
+        "selected": false
+      },
+      {
+        "number": "D",
+        "answer": "Talk privately between themselves",
+        "status": "introvert",
         "selected": false
       }
     ]

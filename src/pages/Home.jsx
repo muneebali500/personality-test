@@ -20,7 +20,7 @@ export default function Home() {
           activity.
         </p>
 
-        <Link to="/question" className="main-content__start-btn">
+        <Link to="/question/1" className="main-content__start-btn">
           Start
         </Link>
       </div>
