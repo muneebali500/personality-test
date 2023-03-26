@@ -19,7 +19,7 @@ function App() {
       <Layout>
         <Routes>
           <Route index element={<Home />} />
-          <Route path="/question/:id" element={<Questions />} />
+          <Route path="/question" element={<Questions />} />
           <Route path="/introvert" element={<IntrovertResult />} />
           <Route path="/extrovert" element={<ExtrovertResult />} />
           <Route path="*" element={<Page404 />} />
